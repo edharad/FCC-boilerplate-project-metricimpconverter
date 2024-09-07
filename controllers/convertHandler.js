@@ -16,22 +16,19 @@ function checkDiv(possibleFraction) {
 }
 
 function ConvertHandler() {
-  
   this.getNum = function(input) {
 
     let result = numberStringSplit(input)[0];
     let nums = checkDiv(result);
-
     if(!nums) {
       return undefined;
     }
 
     let num1 = nums[0];
     let num2 = nums[1] || '1';
-
     result = parseFloat(num1) / parseFloat(num2);
 
-    if (isNan(num1) || isNaN(num2)) {
+    if (isNaN(num1) || isNaN(num2)) {
       return undefined
     }
     return result;
@@ -63,7 +60,7 @@ function ConvertHandler() {
       case "km" :
         return "mi";
       case "gal" :
-        return "l";
+        return "L";
       case "lbs" :
         return "kg";
       case "mi":
@@ -79,7 +76,7 @@ function ConvertHandler() {
 
   this.spellOutUnit = function(initUnit) {
     let unit = initUnit.toLowerCase();
-    switch(result) {
+    switch(unit) {
       case "km" :
         return "kilometers";
       case "gal" :
@@ -104,7 +101,6 @@ function ConvertHandler() {
     let unit = initUnit.toLowerCase();
     let result;
 
-    
     switch(unit) {
       case 'km':
         result = initNum/miToKm;
